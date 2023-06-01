@@ -86,51 +86,6 @@ namespace OCEAdmin.Panel.Handlers
                 packet.missionData.cultureTeam2);
         }
 
-        [Handles(typeof(ClientUpdateMapTime))]
-        public async Task ClientUpdateMapTime(object packetObj, WebSocketPlayer webSocketPlayer)
-        {
-            ClientUpdateMapTime packet = (ClientUpdateMapTime)packetObj;
-
-            var options = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions;
-            MultiplayerOptions.Instance.GetOptionFromOptionType(MultiplayerOptions.OptionType.MapTimeLimit, options).UpdateValue(packet.mapTime);
-
-            AdminPanel.Instance.SetMapTime(packet.mapTime);
-
-            var timers = AdminPanel.Instance.GetTimers();
-
-            await WebSocketController.Broadcast(new ServerSyncTimers(timers.warmupTime, timers.mapTime, timers.roundTime));
-        }
-
-        [Handles(typeof(ClientUpdateRoundTime))]
-        public async Task ClientUpdateRoundTime(object packetObj, WebSocketPlayer webSocketPlayer)
-        {
-            ClientUpdateRoundTime packet = (ClientUpdateRoundTime)packetObj;
-
-            var options = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions;
-            MultiplayerOptions.Instance.GetOptionFromOptionType(MultiplayerOptions.OptionType.RoundTimeLimit, options).UpdateValue(packet.roundTime);
-
-            AdminPanel.Instance.SetRoundTime(packet.roundTime);
-
-            var timers = AdminPanel.Instance.GetTimers();
-
-            await WebSocketController.Broadcast(new ServerSyncTimers(timers.warmupTime, timers.mapTime, timers.roundTime));
-        }
-
-        [Handles(typeof(ClientUpdateWarmupTime))]
-        public async Task ClientUpdateWarmupTime(object packetObj, WebSocketPlayer webSocketPlayer)
-        {
-            ClientUpdateWarmupTime packet = (ClientUpdateWarmupTime)packetObj;
-
-            var options = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions;
-            MultiplayerOptions.Instance.GetOptionFromOptionType(MultiplayerOptions.OptionType.WarmupTimeLimit, options).UpdateValue(packet.warmupTime);
-
-            AdminPanel.Instance.SetWarmupTime(packet.warmupTime);
-
-            var timers = AdminPanel.Instance.GetTimers();
-
-            await WebSocketController.Broadcast(new ServerSyncTimers(timers.warmupTime, timers.mapTime, timers.roundTime));
-        }
-
         [Handles(typeof(ClientRequestEndWarmup))]
         public async Task ClientRequestEndWarmup(object packetObj, WebSocketPlayer webSocketPlayer)
         {

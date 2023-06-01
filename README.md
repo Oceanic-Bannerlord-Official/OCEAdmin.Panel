@@ -9,5 +9,6 @@
 This is the source code for the optional admin panel handler on the server-side.
 You do not need to concern yourself with this repository if you're a server host.
 
-Refer to the original repository if you're not interested in code.
+Refer to the original repository if you're not interested in compiling code.
+
 https://github.com/Oceanic-Bannerlord-Official

@@ -11,4 +11,4 @@ You do not need to concern yourself with this repository if you're a server host
 
 Refer to the original repository if you're not interested in compiling code.
 
-https://github.com/Oceanic-Bannerlord-Official
+https://github.com/Oceanic-Bannerlord-Official/OCEAdmin

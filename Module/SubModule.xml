@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+	<Name value="OCEAdmin - Admin Panel" />
+	<Id value="OCEAdminPanel" />
+	<Version value="v1.1.4" />
+  <ModuleCategory value="MultiplayerOptional" />
+  <Official value="false" />
+	<DefaultModule value="false" />
+    <DependedModules>
+		<DependedModule Id="Native" DependentVersion="v1.0.3" Optional="false" />
+		<DependedModule Id="OCEAdmin" DependentVersion="v1.0.3" Optional="false" />
+	</DependedModules>
+    <SubModules>
+	   <SubModule>
+		    <Name value="OCEAdmin.Panel"/>
+		    <DLLName value="OCEAdmin.Panel.dll"/>
+			<SubModuleClassType value="OCEAdmin.Panel.SubModule"/>
+			<Tags>
+			 <Tag value="custom" key="DedicatedServerType"/>
+			</Tags>
+        </SubModule>
+    </SubModules>
+</Module>
